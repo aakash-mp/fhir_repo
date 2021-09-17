@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <mule xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:apikit="http://www.mulesoft.org/schema/mule/mule-apikit" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd http://www.mulesoft.org/schema/mule/mule-apikit http://www.mulesoft.org/schema/mule/mule-apikit/current/mule-apikit.xsd ">
     <http:listener-config name="fhir-r4-us-core-patient-api-httpListenerConfig">
-        <http:listener-connection host="0.0.0.0" port="8083" />
+        <http:listener-connection host="0.0.0.0" port="8081" />
     </http:listener-config>
     <apikit:config name="fhir-r4-us-core-patient-api-config" api="fhir-r4-us-core-patient-api.raml" outboundHeadersMapName="outboundHeaders" httpStatusVarName="httpStatus" />
     <flow name="fhir-r4-us-core-patient-api-main">
@@ -225,10 +225,10 @@ output application/json
         </ee:transform>
     </flow>
     <flow name="get:\Patient\(id):fhir-r4-us-core-patient-api-config">
-		<flow-ref doc:name="Flow Reference" doc:id="f16ffa94-0383-4f3f-a2ba-90c2ecc4d5e9" name="getPatientID"/>
+		<flow-ref doc:name="Flow Reference" doc:id="9f4eab63-f63c-4102-87df-453e0023cd2d" name="getPatientID"/>
     </flow>
     <flow name="post:\Patient:application\fhir+json:fhir-r4-us-core-patient-api-config">
-        <flow-ref doc:name="Flow Reference" doc:id="2a19314e-615d-46c1-91ad-e4215fb51072" name="createOrUpdatePatients"/>
+		<flow-ref doc:name="Flow Reference" doc:id="134062c9-5257-4285-856e-309b2246d23b" name="createOrUpdatePatients"/>
     </flow>
     <flow name="post:\Patient:application\fhir+xml:fhir-r4-us-core-patient-api-config">
         <logger level="INFO" message="post:\Patient:application\fhir+xml:fhir-r4-us-core-patient-api-config" />

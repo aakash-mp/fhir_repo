@@ -29,7 +29,8 @@ uses:
       resourceName: patient.Patient
     }
   }
- 
+  
+  
   /{id}:
     type: {resourceTypes.fhirResource: {
         getSingleExample: !include /examples/responses/get_resource_id.json,
@@ -37,3 +38,4 @@ uses:
         resourceName: patient.Patient
       }
     }
+   
